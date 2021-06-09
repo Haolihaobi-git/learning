@@ -19,3 +19,9 @@ yum install java-1.8.0-openjdk* -y
 ### 4，复制
 
 win下使用scp user@ip:/path localpath 前面是linux的用户, ip, 以及文件路经, 后面是win下保存的路径
+
+# 5，免密登录
+
+1，ssh-keygen -t rsa 生成秘钥
+
+2，在.ssh生成的pub复制到authorized_keys
