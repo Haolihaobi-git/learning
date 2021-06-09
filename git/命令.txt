@@ -1,0 +1,9 @@
+创建分支：git checkout -b feature/json2word_20201222
+推送分支：git push origin feature/json2word_20201222:feature/json2word_20201222
+没有跟踪信息： git branch --set-upstream-to=origin/feature/logmanage_20210112 feature/logmanage_20210112
+合并分支：git merge dev
+删除本地分支：git branch -d dev
+删除远程分支：git push origin --delete dev 
+切换分支：git checkout -b feature/resume origin/feature/resume
+
+
