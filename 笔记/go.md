@@ -47,7 +47,7 @@ make
 
 - 切片的长度是可变的，是一种轻量级的数据结构，有三个属性，指针，长度，容量。
 - 不需要指定大小
-- 切片可以通过数组来初始化var one = []int{}，也可以通过内置函数make()初始化var one = make([]int.3)，在追加元素是如果容量不足时将len的2倍扩容
+- 切片可以通过数组来初始化var one = []int{}，也可以通过内置函数make()初始化var one = make([]int.3)，在追加元素是如果容量不足时将len的2倍扩容，容量小于1000个时，总是成倍的增长，一旦容量超过1000个，增长因子设为1.25，也就是说每次会增加25%的容量。
 
 # 4 解释以下命令的作用
 
@@ -289,6 +289,13 @@ func main() {
 - B. 从一个 nil channel 接收数据，造成永远阻塞
 - C. 给一个已经关闭的 channel 发送数据，引起 panic
 - D. 从一个已经关闭的 channel 接收数据，如果缓冲区中为空，则返回一个零值
+
+### unitptr和unsafe.Pointer的区别
+
+- unsafe.Pointer只是单纯的通用指针类型，用于转换不同类型指针，它不可以参与指针运算；
+- 而uintptr是用于指针运算的，GC 不把 uintptr 当指针，也就是说 uintptr 无法持有对象， uintptr 类型的目标会被回收；
+- unsafe.Pointer 可以和 普通指针 进行相互转换；
+- unsafe.Pointer 可以和 uintptr 进行相互转换。
 
 # 知识点
 
