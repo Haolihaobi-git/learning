@@ -94,14 +94,14 @@ Throwable 可以用来表示任何可以作为异常抛出的类，分为两种�
 - **受检异常** ：需要用 try...catch... 语句捕获并进行处理，并且可以从异常中恢复；
 - **非受检异常** ：是程序运行时错误，例如除 0 会引发 Arithmetic Exception，此时程序崩溃并且无法恢复。
 
-![](C:\Users\好里好比\Documents\面试\学习\我的笔记图片\68747470733a2f2f63732d6e6f7465732d313235363130393739362e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f50506a77502e706e67.png)
+![](D:\技术学习\learning\笔记\学习\我的笔记图片\68747470733a2f2f63732d6e6f7465732d313235363130393739362e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f50506a77502e706e67.png)
 ## java容器
 容器主要包括Collection和map两种，colllection存储着对象的集合。和map存储着键值对的映射
 ### Collection
 
 Collection 继承了 Iterable 接口，其中的 iterator() 方法能够产生一个 Iterator 对象，通过这个对象就可以迭代遍历 Collection 中的元素
 
-![](C:\Users\好里好比\Documents\面试\学习\我的笔记图片\68747470733a2f2f63732d6e6f7465732d313235363130393739362e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f37333430336438342d643932312d343966312d393361392d6438666530353066333439372e706e67.png)
+![](D:\技术学习\learning\笔记\学习\我的笔记图片\68747470733a2f2f63732d6e6f7465732d313235363130393739362e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f37333430336438342d643932312d343966312d393361392d6438666530353066333439372e706e67.png)
 
 #### 1,Set:
 - TreeSet：基于红黑树实现，支持有序性操作，例如根据一个范围查找元素的操作。但是查找效率不如 HashSet，HashSet 查找的时间复杂度为 O(1)，TreeSet 则为 O(logN)。
@@ -119,7 +119,7 @@ Collection 继承了 Iterable 接口，其中的 iterator() 方法能够产生�
 - PriorityQueue：基于堆结构实现，可以用它来实现优先队列。
 
 ### Map
-![](C:\Users\好里好比\Documents\面试\学习\我的笔记图片\68747470733a2f2f63732d6e6f7465732d313235363130393739362e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f37373464373536622d393032612d343161332d613366642d3831636133656636383864632e706e67.png)
+![](D:\技术学习\learning\笔记\学习\我的笔记图片\68747470733a2f2f63732d6e6f7465732d313235363130393739362e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f37373464373536622d393032612d343161332d613366642d3831636133656636383864632e706e67.png)
 
 - TreeMap：基于红黑树实现。
 - HashMap：基于哈希表实现。
@@ -383,17 +383,17 @@ class ExeceptionHandler implements Thread.UncaughtExceptionHandler{
 
 ​	java中的线程池用的是ThreadPoolExecutor，真正执行代码的部分是runWorker方法：final void runWorker(Worker w)，线程池中处理异常的是afterExecute（）。
 
-![1593223946(1)](C:\Users\好里好比\Documents\学习\我的笔记图片\1593223946(1).jpg)
+![1593223946(1)](D:\技术学习\learning\笔记\学习\我的笔记图片\1593223946(1).jpg)
 
 ###### 1，自定义线程池，继承ThreadPoolExecutor并复写其afterExecute(Runnable r, Throwable t)方法。
 
-![1593224063(1)](C:\Users\好里好比\Documents\学习\我的笔记图片\1593224063(1).jpg)
+![1593224063(1)](D:\技术学习\learning\笔记\学习\我的笔记图片\1593224063(1).jpg)
 
 ##### 2，实现Thread.UncaughtExceptionHandler接口
 
 实现Thread.UncaughtExceptionHandler接口，实现void uncaughtException(Thread t, Throwable e);方法，并将该handler传递给线程池的ThreadFactory
 
-![1593240682](C:\Users\好里好比\Documents\学习\我的笔记图片\1593240682.jpg)
+![1593240682](D:\技术学习\learning\笔记\学习\我的笔记图片\1593240682.jpg)
 
 ##### 继承ThreadGroup
 
@@ -401,13 +401,13 @@ class ExeceptionHandler implements Thread.UncaughtExceptionHandler{
 
 > 尤其注意：上面三种方式针对的都是通过execute(xx)的方式提交任务，如果你提交任务用的是submit()方法，那么上面的三种方式都将不起作用,而应该使用下面的方式
 
-![1593240909(1)](C:\Users\好里好比\Documents\学习\我的笔记图片\1593240909(1).jpg)
+![1593240909(1)](D:\技术学习\learning\笔记\学习\我的笔记图片\1593240909(1).jpg)
 
 ##### 采用Future模式
 
 如果提交任务的时候使用的方法是submit，那么该方法将返回一个Future对象，所有的异常以及处理结果都可以通过future对象获取。 采用Future模式，将返回结果以及异常放到Future中，在Future中处理
 
-![1593240966(1)](C:\Users\好里好比\Documents\学习\我的笔记图片\1593240966(1).jpg)
+![1593240966(1)](D:\技术学习\learning\笔记\学习\我的笔记图片\1593240966(1).jpg)
 
 ### runnable
 
@@ -547,7 +547,7 @@ result = future.get();  //改方法会一直阻塞，直到提交的任务被运
 
 ### JVM 的内存模型以及分区情况和作用
 
-![bf54c7d0-3ee8-11e-9993-cdc55e79d144](C:\Users\好里好比\Documents\学习\我的笔记图片\bf54c7d0-3ee8-11e9-9993-cdc55e79d144.png)
+![bf54c7d0-3ee8-11e-9993-cdc55e79d144](D:\技术学习\learning\笔记\学习\我的笔记图片\bf54c7d0-3ee8-11e9-9993-cdc55e79d144.png)
     方法区   
     用于存储虚拟机加载的类信息，常量，静态变量等数据。在 JDK 1.8 之后，原来永久代的数据被分到了堆和元空间中。元空间存储类的元信息，静态变量和常量池等放入堆中。  
     堆
@@ -641,7 +641,7 @@ d,本地方法栈中JNI的引用的对象
 
 #### 垃圾收集器
 
-![1590404212(1)](C:\Users\好里好比\Documents\学习\我的笔记图片\1590404212(1).jpg)
+![1590404212(1)](D:\技术学习\learning\笔记\学习\我的笔记图片\1590404212(1).jpg)
 
 ### 对象分配规则
 
@@ -894,7 +894,7 @@ Minor GC 也被称为新生代 GC，指发生在新生代（PSYoungGen）的垃�
 
 #### ClassLoader的种类
 
-![19485102d2b4af4f6d7ebc5d71153b1](C:\Users\好里好比\Documents\学习\我的笔记图片\19485102d2b4af4f6d7ebc5d71153b1.png)
+![19485102d2b4af4f6d7ebc5d71153b1](D:\技术学习\learning\笔记\学习\我的笔记图片\19485102d2b4af4f6d7ebc5d71153b1.png)
 
 
 

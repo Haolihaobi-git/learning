@@ -1,0 +1,11 @@
+解决etcd watch掉线的一个方案，使用etcd 的grpc-proxy。
+在每一个服务节点上启动多一个proxy, 比如：
+etcd grpc-proxy start --endpoints 127.0.0.1:2379
+
+这条命令默认会开启23790的端口，然后修改etcd的配置：
+cat /etc/brick/etcd_config.toml 
+[[service]]
+ip = "127.0.0.1"
+port = 23790
+
+就是这个节点复用的所有微服务都使用本地的proxy，减轻etcd集群的压力
